@@ -12,3 +12,6 @@ Professor Nussbaum's general thesis: Human goodness is a fragile thing.
 
 ### The (v)alidity of Ancient Athens
 The problems present in many of the ancient texts of Greece are still as applicable today, as they were long ago. The circumstances might not be the same -- for example, a strong polytheistic culture -- but the central themes are by no means outdated. 
+
+### Tragedy
+Live your life with such passion that tragedy is possible. 
