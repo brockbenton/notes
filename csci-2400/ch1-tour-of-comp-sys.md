@@ -100,8 +100,20 @@ A process can consist of multiple execution units, called *threads*, each runnin
 
 #### Virtual Memory
 
-*Virtual memory* is an abstraction that provides each process with the illusion that it has exclusive use of the main memory. 
+*Virtual memory* is an abstraction that provides each process with the illusion that it has exclusive use of the main memory. Each process has the same uniform view of memory, which is known as its *virtual address space*. 
+
+<img width="446" height="353" alt="image" src="https://github.com/user-attachments/assets/7ce4fda7-6fa9-4a40-b868-29604177ac0f" />
+
+The areas within the virtual address space include,
+* *Heap.* Dynamically-sized memory, typically effected by the usage of commands such as `malloc` and `free`.
+* *Shared libraries.* This holds libraries such as the C standard library and math library.
+* *Stack.* The dynamically-sized compiler used to implement function calls.
+* *Kernel virtual memory.* The *kernel* is the part of the operating system that is always resident in memory. 
 
 #### Files
 
+A *file* is a sequence of bytes. All input and output in a system is performed by reading and writing files. 
+
 ## Systems Communicate with Other Systems Using Networks
+
+Networks can be viewed as just another I/O device where the system is copying a sequence of bytes from main memory, and sending it to the network adapter in which the data flows across the network from one machine to another. 
