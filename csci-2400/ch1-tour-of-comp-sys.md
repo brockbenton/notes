@@ -51,14 +51,43 @@ The shell is a command-line interpreter.
 
 #### Hardware Organization of a System 
 
+<img width="401" height="293" alt="image" src="https://github.com/user-attachments/assets/bdf64a89-7e35-409b-8bf8-3c8d4fb83a4f" />
+
+* *Buses.* Electrical conduits that carry bytes of information back and forth components. They are typically designed to transfer fixed-sized chunks of bytes known as *words*.
+* *I/O Devices.*
+* *Main Memory.* A temporary storage device that holds both a program and the data it manipulates while the processor is executing the program. Physically, this is a collection of *dynamic random access memory* (DRAM).
+* *Processor.* The *central processing unit* (CPU) is the engine that interprets instructions stored in main memory. At its core is a word-sized storage device (or *register*) called the *program counter*. 
+
 #### Running the `hello` program
 
+1. As we type the characters "`./hello`" at the keyboard, the shell program reads each one into a register, and then stores it in memory.
+2. When we hit the `enter` key, the shell knows that we have finished and then loads the executable `hello` file by executing a sequence of instructions that copy the code and data in the `hello` object file from disk to main memory.
+3. Using a technique known as *direct memory access* (DMA), the data travels directly from disk to main memory, without passing through the processor.
+4. Once the code and data in the `hello` object file are loaded into memory, the processor begins executing the machine-language instructions in the `hello` program's `main` routine. 
+
 ## Caches Matter
+
+*Cache memories* are temporary staging areas for information that the processor is likely to need in the near future. 
+* An *L1 cache* on the processor chip holds tens of thousands of bytes and can be accessed nearly as fast as the register file.
+* A larger *L2 cache* holds hundreds of thousands to millions of bytes but might be up to 5 times as slow as the L1 cache.
+* Most modern systems have a *L3 cache*. 
+
 ## Storage Devices Form a Hierarchy
 
 <img width="510" height="301" alt="image" src="https://github.com/user-attachments/assets/6c7e89e5-4de9-40ac-a1e3-965d1af76f4f" />
 
 ## The Operating System Manages the Hardware
 
+An operating system is a type of middle-layer that sits between the application layer and the hardware layer. The operating system has two primary purposes:
+1. To protect the hardware from misuse by runaway applications.
+2. To provide applicatiopns with simple and uniform mechanism for manipulating complicated and often wildly different low-level hardware devices. 
+
+#### Processes
+
+#### Threads
+
+#### Virtual Memory
+
+#### Files
 
 ## Systems Communicate with Other Systems Using Networks
