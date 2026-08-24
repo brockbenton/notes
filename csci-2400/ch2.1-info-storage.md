@@ -45,8 +45,34 @@ A string in C is encoded by an array of characters terminated by the null. Each 
 
 #### Representing Code
 
+Consider the following C function:
+
+```c
+int sum(int x, int y) {
+  return x+y;
+}
+```
+
+The machine code generated has the following byte representations dependent on your machine:
+
+<img width="516" height="131" alt="image" src="https://github.com/user-attachments/assets/205cc325-f974-415c-a319-1d2813692af4" />
+
 #### Introduction to Boolean Algebra
+
+| Operation | Result |
+| --- | --- |
+| $a$ | $[01101001]$ |
+| $b$ | $[01010101]$ |
+| $\neg a$ | $[10010110]$ |
+| $\neg b$ | $[10101010]$ |
+| $a$ & $b$ | $[01000001]$ |
+| $a \| b$ | $[01111101]$ |
+| $a$ $\textasciicircum$ $b$ | $[00111100]$ |
 
 #### Bit-Level Operations in C
 
+<img width="497" height="108" alt="image" src="https://github.com/user-attachments/assets/42a7fdc6-7d5f-4328-805f-25b14f165f86" />
+
 #### Logical Operations in C
+
+<img width="157" height="123" alt="image" src="https://github.com/user-attachments/assets/2b54e455-2379-4549-b214-afe4750f6d47" />
