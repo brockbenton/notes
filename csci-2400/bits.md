@@ -28,3 +28,4 @@ What about converting from binary to decimal?
 * Base 16 (0 to 9, A to F)
 
 <img width="860" height="330" alt="image" src="https://github.com/user-attachments/assets/38045eba-594f-4a9f-95cb-d7e0ebb90d75" />
+
