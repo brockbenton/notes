@@ -84,11 +84,23 @@ An operating system is a type of middle-layer that sits between the application 
 
 #### Processes
 
-A *process* is the operating system's abstraction for a running program. 
+A *process* is the operating system's abstraction for a running program. Multiple processes can run *concurrently* (instructions of one are interleaved with the instructions of another), and each process appears to have exclusive use of the hardware. This mechanism is described as *context switching*. 
+
+Using the `hello` example, here is the process flow: 
+1. Shell is running alone.
+2. When we run the `hello` program, the shell carries out our request by invoking a *system call* that passes control to the operating system.
+3. The operating system saves the shell's context, creates a new `hello` process and its context, and then passes control to the new `hello` process.
+4. After `hello` terminates, the operating system restores the context of the shell.
+
+<img width="446" height="172" alt="image" src="https://github.com/user-attachments/assets/e19dfc4c-384c-44b8-b853-7a44ca2da295" />
 
 #### Threads
 
+A process can consist of multiple execution units, called *threads*, each running in the context of the process and sharing the same code and global data. It is easier to share data between threads than it is between processes, so multi-threading is one way to make programs run faster when multiple processors are available. 
+
 #### Virtual Memory
+
+*Virtual memory* is an abstraction that provides each process with the illusion that it has exclusive use of the main memory. 
 
 #### Files
 
