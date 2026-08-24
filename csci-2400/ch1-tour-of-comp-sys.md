@@ -84,6 +84,8 @@ An operating system is a type of middle-layer that sits between the application 
 
 #### Processes
 
+A *process* is the operating system's abstraction for a running program. 
+
 #### Threads
 
 #### Virtual Memory
