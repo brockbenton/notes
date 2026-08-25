@@ -17,11 +17,11 @@ For example, given the number $0x173A4C$, the binary representation would be: $0
 
 <img width="410" height="47" alt="image" src="https://github.com/user-attachments/assets/e1079960-9f3e-4c18-ab83-3d40baf22d69" />
 
-==FINISH==
-==FINISH==
-==FINISH==
-==FINISH==
-==FINISH==
+To convert a decimal number $x$ to hexadecimal, we can repeatedly divide $x$ by 16, giving a quotient $q$ and a remainder $r$, such that: $x = q \cdot 16 + r$. Convert $r$ to it's hexadecimal equivalent, and keep repeating the same process.
+
+An example,
+
+<img width="188" height="111" alt="image" src="https://github.com/user-attachments/assets/e67a98d3-0d99-4ca5-8946-08a1b7917483" />
 
 #### Words
 
@@ -37,7 +37,12 @@ The declaration of a point is denoted by the `*` symbol. So, `char *{variable na
 
 #### Addressing and Byte Ordering
 
-.
+A multi-byte object occupies contiguous bytes, and it's address is the smallest of them. 
+
+*Little endian* (storing the least significant byte at the lowest address) vs. *big endian* (storing the most significant byte first) is mostly arbitrary with new computers. There are three cases when it isn't, though:
+1. *Network transmission.* Receivers disagreeing about the bytes within a word requiring some sort of normalization prior to sending.
+2. *Reading disassembly.*
+3. *Casting around the type system.* `(unsigned char *) &x`
 
 #### Representing Strings
 
