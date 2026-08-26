@@ -1,5 +1,7 @@
 # Integer Representations
 
+A bit pattern like `1011` has no inherent numeric value. *Encoding* is the rule that the user and computer agree on for turning that pattern into a number. Two rules that we will discuss, include: *unsigned encoding* and *two's-complement encoding*.
+
 #### Integral Data Types
 
 An *integral* data type is one that represents a finite range of integers. For example, `char, short, long,` and `long long` are all integral data types. Each integral data type can be expressed as non-negative (`unsigned`) or possibly negative (`signed`) which is the default. 
@@ -10,11 +12,19 @@ An *integral* data type is one that represents a finite range of integers. For e
 
 #### Unsigned Encodings
 
+This is regular binary place-value counting. Similar to decimal, where each position is worth 10x the one to its right (1s, 10s, 100s...), binary positions are worth 2x the one to its right (1s, 2s, 4s, 8s...). Since every position is positive, you can never get a negative number - hence "unsigned."
 
+$B2U_{w}(x) = \sum_{i=0}^{w-1} x_{i}2^{i}$ with range: $[0, 2^{w-1}]$
+
+So for bits = `1011`, unsigned = `8 + 0 + 2 + 1 = 11`. 
 
 #### Two's-Complement Encodings
 
+Exact same rule as unsigned encoding, except the leftmost bit's weight gets flipped negative. For example, `(8, 4, 2, 1)` for 4 bits is `(-8, 4, 2, 1)`. 
 
+$B2T_{w}(x) = -x_{w-1}2^{w-1} + \sum_{i=0}^{w-1} x_{i}2^{i}$ with range: $[-2^{w-1}, 2^{w-1} -1]$
+
+So for bits = `1011`, two's-complement = `-8 + 0 + 2 + 1 = -5`. 
 
 #### Conversions Between Signed and Unsigned
 
@@ -34,9 +44,32 @@ While the numeric value changed, the bit values are identical.
 
 #### Signed vs. Unsigned in C
 
+Most numbers in C are signed by default. When declaring a constant such as `12345` or `0x1A2B,` the value is considered signed. Appending the character `U` or `u` creates an unsigned constant, e.g., `12345U` or `0x1A2Bu`. 
+
+Conversions can happen explicitly (as described in **Conversions Between Signed and Unsigned**), or implicitly, like the following, 
+```c
+int tx, ty;
+unsigned ux, uy;
+
+tx = ux; /* Cast to signed */
+uy = ty; /* Cast to unsigned */
+```
+
+Printing numeric values can be done via format specifiers (`%d` for signed and `%u` for unsigned). 
+
 #### Expanding the Bit Representation of a Number
 
+Widening (e.g. `short` $\rightarrow$ `int`): 
+* *Unsigned.* zero-extend, pad new high bits with `0`.
+* *Two's-complement.* sign-extend, pad new high bits with copies of the original sign bit.
+
+?
+
 #### Truncating Numbers
+
+Shrinking (e.g. `int` $\rightarrow$ `short`): drop high-order bits.
+* *Unsigned.* equivalent to `x mod 2^{k}`.
+* *Two's-complement.* also `x mod 2^{k}`, but then reinterpreted via `U2T`. 
 
 #### Advice on Signed vs. Unsigned
 
