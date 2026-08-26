@@ -74,6 +74,8 @@ The machine code generated has the following byte representations dependent on y
 | $a \| b$ | $[01111101]$ |
 | $a$ $\textasciicircum$ $b$ | $[00111100]$ |
 
+Not everything in boolean algebra is the same in integer algebra. For example, $a + (bc) = (a+b)(a+c)$ is true in boolean algebra, though not true in integer algebra. 
+
 #### Bit-Level Operations in C
 
 <img width="497" height="108" alt="image" src="https://github.com/user-attachments/assets/42a7fdc6-7d5f-4328-805f-25b14f165f86" />
