@@ -18,7 +18,7 @@ View arguments as bit vectors. Each argument applied bit-wise.
 Examples,
 
 * ! $0x41 \rightarrow !$ True $=$ False
-* ! $0x00 \rightarrow !$ False $=$ True
-* !! $0x41 \rightarrow !!$ True $\rightarrow !$ False $=$ True
-* $0x69$ && $0x55 \rightarrow$ True
-* $0x69 || 0x55 \rightarrow$ True
+* ! $0x00 \rightarrow !$ False $=$ True $(0x01)$
+* !! $0x41 \rightarrow !!$ True $\rightarrow !$ False $=$ True $(0x01)$
+* $0x69$ && $0x55 \rightarrow$ True $(0x01)$
+* $0x69 || 0x55 \rightarrow$ True $(0x01)$
