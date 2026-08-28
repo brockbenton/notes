@@ -26,6 +26,25 @@ $B2T_{w}(x) = -x_{w-1}2^{w-1} + \sum_{i=0}^{w-1} x_{i}2^{i}$ with range: $[-2^{w
 
 So for bits = `1011`, two's-complement = `-8 + 0 + 2 + 1 = -5`. 
 
+An 8 bit example for -35 looks very similar,
+| -128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+|---|---|---|---|---|---|---|---|
+| 1 (-128) | 1 (64) | 0 | 1 (16) | 1 (8) | 1 (4) | 0 | 1 (1) |
+ 
+$-128 + 64 + 16 + 8 + 4 + 1 = -35$
+
+#### Encoding a Negative Decimal as Two's-Complement
+
+$B2T$ goes bits $\rightarrow$ decimal. To go the opposite direction, use the following algorithm:
+1. Write the magnitude (the positive version of the number) in ordinary binary.
+2. Invert every bit.
+3. Add 1.
+
+For example, encoding -35 as an 8-bit two's complement number:
+1. 35 in binary: `00100011`
+2. Invert every bit: `11011100`
+3. Add 1: `110111101`
+
 ## Conversions Between Signed and Unsigned
 
 C allows for casting between `unsigned` and `signed`: `(unsigned) x` and `(int) u`. Doing this, though, might yield unexpected results. For example, consider the following code:
