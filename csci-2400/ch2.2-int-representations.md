@@ -82,8 +82,6 @@ Widening (e.g. `short` $\rightarrow$ `int`):
 * *Unsigned.* zero-extend, pad new high bits with `0`.
 * *Two's-complement.* sign-extend, pad new high bits with copies of the original sign bit.
 
-?
-
 ## Truncating Numbers
 
 Shrinking (e.g. `int` $\rightarrow$ `short`): drop high-order bits.
