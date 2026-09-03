@@ -17,6 +17,14 @@ Add column by column, then truncate to $w$ bits. Equivalent to $(x+y) \bmod 2^{w
 
 Overflow occurs if and only if the sum is *smaller than either operand.* 
 
+```c
+int uadd_ok(unsigned x, unsigned y) {
+   return x + y >= x;
+}
+```
+
+Overflow subtracts exactly $2^{w}$. 
+
 ## Unsigned Negation
 
 $-x$ is whatever gets you back to zero $\bmod 2^{w}$: 
@@ -25,9 +33,17 @@ $-x$ is whatever gets you back to zero $\bmod 2^{w}$:
 
 ## Two's-Complement Addition
 
+Identical bit-level procedure to unsigned addition, except for *interpretation* and *overflow*. 
+
+?
+
 ## Two's Complement Negation
 
+Complement every bit, and add 1. In C, `-x` and `~x + 1` are the same. 
+
 ## Multiplication 
+
+Truncate the full $2w$-bit product to $w$ bits: $(x \cdot y) \bmod 2^{w}$. 
 
 ## Multiplication by Constants
 
