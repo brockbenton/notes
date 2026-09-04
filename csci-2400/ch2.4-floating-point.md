@@ -8,12 +8,12 @@ So $101.11_{2} = 4 + 0 + 1 + \frac{1}{2} + \frac{1}{4} = \frac{23}{4}$.
 
 ## IEEE Representation
 
-## Notable Bit Patterns
+## Decoding a Bit Pattern
 
-## Converting an Integer to Float
+## Encoding a Decimal Value
 
 ## Rounding
 
-## Operations
+## Properties of Operations
 
-## Floating Point in C
+## Casting and Precision Limits
