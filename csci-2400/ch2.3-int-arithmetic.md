@@ -1,5 +1,3 @@
-==need to fix ai slop==
-
 # Integer Arithmetic
 
 Adding two positive numbers can give you a negative result, and `x-y` can disagree with `x-y<0`. These aren't bugs but rather they are artifacts of *finite word size*. Remember: computer "integer" arithmetic is simply modular arithmetic.
@@ -35,7 +33,7 @@ $-x$ is whatever gets you back to zero $\bmod 2^{w}$:
 
 ## Two's-Complement Addition
  
-**Identical bit-level procedure to unsigned addition.** Same columns, same carries, same truncation — the machine uses one `add` instruction for both. Only the *interpretation* and the *overflow test* differ.
+Identical bit-level procedure to unsigned addition.
  
 Truncation shifts the true sum by $\pm 2^w$:
  
@@ -55,8 +53,6 @@ int tadd_ok(int x, int y) {
     return !neg_over && !pos_over;
 }
 ```
- 
-**Do not test with `sum - x == y`.** Addition and subtraction are both mod $2^w$, so that is true *always* — overflow or not. Useless.
  
 4-bit examples:
  
