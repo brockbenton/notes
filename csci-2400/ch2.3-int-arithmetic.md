@@ -37,14 +37,16 @@ Identical bit-level procedure to unsigned addition.
  
 Truncation shifts the true sum by $\pm 2^w$:
  
-- true sum $\ge 2^{w-1}$ → **positive overflow**, result is $x + y - 2^w$
-- true sum $< -2^{w-1}$ → **negative overflow**, result is $x + y + 2^w$
+- true sum $\ge 2^{w-1}$ → positive overflow, result is $x + y - 2^w$
+- true sum $< -2^{w-1}$ → negative overflow, result is $x + y + 2^w$
 - otherwise normal
-**Overflow test.** Look at the signs, not the carry-out:
+
+The overflow test:
  
-- both operands **positive**, result **negative** → positive overflow
-- both operands **negative**, result **nonnegative** → negative overflow
-- mixed signs → **can never overflow**
+- both operands *positive*, result *negative* → positive overflow
+- both operands *negative*, result *nonnegative* → negative overflow
+- mixed signs → *can never overflow*
+  
 ```c
 int tadd_ok(int x, int y) {
     int sum = x + y;
@@ -64,7 +66,7 @@ int tadd_ok(int x, int y) {
  
 ## Two's-Complement Negation
  
-**Procedure: complement every bit, add 1.** In C, `-x` and `~x + 1` are the same thing.
+Procedure: complement every bit, add 1.** In C, `-x` and `~x + 1` are the same thing.
  
 ```
 [0101]  5  →  ~ [1010]  →  +1 [1011]  -5
@@ -73,20 +75,20 @@ int tadd_ok(int x, int y) {
  
 Shortcut: find the rightmost `1`, leave it and everything right of it alone, flip everything to its left.
  
-**The one exception:** $TMin$ is its own negation. `-(-8) == -8` in 4 bits, because `+8` isn't representable. This is the edge case every trick question uses.
+The one exception: $TMin$ is its own negation. `-(-8) == -8` in 4 bits, because `+8` isn't representable.
  
 ## Multiplication
  
 Truncate the full $2w$-bit product to $w$ bits — $(x \cdot y) \bmod 2^w$.
  
-**The truncated bit pattern is identical for signed and unsigned**, so again one instruction serves both. The full products differ; the low $w$ bits don't.
+The truncated bit pattern is identical for signed and unsigned, so again one instruction serves both. The full products differ; the low $w$ bits don't.
  
 | mode | x | y | full | truncated |
 | --- | --- | --- | --- | --- |
 | unsigned | 5 `101` | 3 `011` | 15 `001111` | 7 `111` |
 | two's comp | -3 `101` | 3 `011` | -9 `110111` | -1 `111` |
  
-**Overflow test.** Division *does* work here, unlike subtraction for addition:
+The overflow test:
  
 ```c
 int tmult_ok(int x, int y) {
@@ -99,25 +101,24 @@ int tmult_ok(int x, int y) {
  
 Multiply is ~10+ cycles; shift/add/sub are 1. So compilers rewrite it.
  
-**Powers of two:** `x * 2^k` → `x << k`. Valid for both signed and unsigned, and stays correct even when it overflows.
+*Powers of two:* `x * 2^k` → `x << k`. Valid for both signed and unsigned, and stays correct even when it overflows.
  
-**Anything else:** write $K$ in binary, find each run of 1s from bit $n$ down to bit $m$, and use either
+*Anything else:* write $K$ in binary, find each run of 1s from bit $n$ down to bit $m$, and use either
  
-- **Form A:** `(x<<n) + (x<<n-1) + ... + (x<<m)`
-- **Form B:** `(x<<n+1) - (x<<m)`
+- *Form A:* `(x<<n) + (x<<n-1) + ... + (x<<m)`
+- *Form B:* `(x<<n+1) - (x<<m)`
+  
 Pick whichever has fewer operations. A run of length 1 or 2 favors A; longer runs favor B.
  
 `x * 14`: $14 = 2^3+2^2+2^1$ → `(x<<3)+(x<<2)+(x<<1)`, or $14 = 2^4-2^1$ → `(x<<4)-(x<<1)`. Second one wins.
  
 ## Dividing by Powers of Two
  
-Right shift. **Which shift depends on signedness, and negatives need a fix.**
+Right shift.
  
-**Unsigned:** `x >> k` logical. Correct, done.
+*Unsigned:* `x >> k` logical. Correct, done.
  
-**Two's complement:** arithmetic shift rounds *down*; C division rounds *toward zero*. These disagree on negatives. `-9 >> 2` is `-3`, but `-9 / 4` is `-2`.
- 
-**Fix: add a bias of $2^k - 1$ before shifting, but only when negative.**
+*Two's complement:* arithmetic shift rounds *down*; C division rounds *toward zero*. These disagree on negatives. `-9 >> 2` is `-3`, but `-9 / 4` is `-2`. *Fix: add a bias of $2^k - 1$ before shifting, but only when negative.*
  
 ```c
 (x < 0 ? x + (1 << k) - 1 : x) >> k
@@ -131,7 +132,7 @@ Branchless (32-bit), for when conditionals are banned:
  
 `x >> 31` is all 1s if negative, all 0s if not, so the mask adds the bias or adds nothing.
  
-**This only works for powers of two.** There is no shift trick for division by arbitrary constants.
+This only works for powers of two. There is no shift trick for division by arbitrary constants.
  
 ## Quick Reference
  
