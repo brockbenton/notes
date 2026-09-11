@@ -16,9 +16,19 @@ A float is a fixed number of bits that are chopped into three chunks:
 
 But a couple of design tricks can make this confusing:
 1. *The leading 1 isn't stored.* When a number is normalized, it *always* starts with 1.
-2. The exponent is offset. ???
+2. *The exponent is offset.* $E$ has to be able to go negative, for example: 0.25 is $1.0 \cdot 2^{-2}$. But the exponent field is merely some unsigned bits. Workaround: shift the whole range up before storing. So for $k = 3$ (bias of 3), an exponent of $1$ is stored as $1 + 3 = 4 =$ `100` and an exponent of $-2$ is stored as $-2 + 3 = 1 =$ `001`.
+
+| $k$ | Bias |
+| --- | ---- |
+| 3   | 3    |
+| 4   | 7    |
+| 5   | 15   |
 
 ## IEEE Representation
+
+$V = (-1)^{s} \cdot M \cdot 2^{E}$, or in other words, $value = sign \cdot digits \cdot power of two$. 
+
+A distinction: $M$ is `1.011`, but the bits actually stored are `011` so $f = \text{what's physically stored}$ and $M = \text{what the number actually is}$ so $M = 1 + f$. 
 
 ## Decoding a Bit Pattern
 
