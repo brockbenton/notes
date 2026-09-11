@@ -34,6 +34,6 @@ Roud-to-even is the default. It only differs from the other modes on *exact ties
 
 ## Properties of Operations
 
-
+*Commutativity always holds.* `a * b` is identical to `b * a`. *Associativity doesn't.* `a + b + c` and `c + b + a` aren't merely reorderings since C evaluates left to right. 
 
 ## Casting and Precision Limits
