@@ -24,6 +24,8 @@ But a couple of design tricks can make this confusing:
 | 4   | 7    |
 | 5   | 15   |
 
+So, $\text{Bias} = 2^{k-1} - 1$.
+
 ## IEEE Representation
 
 $V = (-1)^{s} \cdot M \cdot 2^{E}$, or in other words, $value = sign \cdot digits \cdot power of two$. 
