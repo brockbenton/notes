@@ -91,6 +91,8 @@ Answer: `0_100_0110`.
 
 #### Denormalized
 
+*Trick.* Multiple of 2? Convert to $2^{c}$ which gives the number of bits *after* the point. Then convert the numerator to binary and pad if needed. For example: $\frac{9}{64}$ is $\frac{9}{2^{6}}$ and $9$ in binary is `1001` so pad two 0's to the left (since the count is 6) to give you `001001`. 
+
 *Example.* Encode $\frac{1}{32} = 0.03125$.
 
 The process:
