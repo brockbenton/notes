@@ -32,20 +32,40 @@ A distinction: $M$ is `1.011`, but the bits actually stored are `011` so $f = \t
 
 ## Decoding a Bit Pattern
 
+|  | Normalized | Denormalized |
+| --- | ---- | ---- |
+| $E$ | $e - \text{Bias}$ | $1 - \text{Bias}$ |
+| $M$ | $1 + f$ | $f$ |
+
 #### Normalized
 
 *Example.* `1_110_010` formatted with $k = 3$, $n = 3$, so $\text{Bias} = 3$. 
 
 `1_110_010` where `1` $=$ the sign bit, `110` $=$ the exponent field, and `010` $=$ the fraction field. Bias is $2^{k-1} - 1 = 2^{2} - 1 = 3$. 
 
-The walk:
+The process:
 1. *Which mode?* Exponent field is `110` (not all zeros, not all ones) so normalized.
+2. *Get $e$.*Read the exponent bits as a plain unsigned number. `110` $= 6$. 
+3. *Get $E$.* Undo the bias. $E = e - \text{Bias} = 6 - 3 = 3$. 
+4. *Get $2^{E}$.* That's the multiplier. $2^{3} = 8$. 
+5. *Get $f$.* Read the fraction bits as an unsigned number, then divide by $2^{n}$. `010` $= 2$, and $n = 3$ so divide by $8$. $f = \frac{2}{8} = \frac{1}{4}$. 
+6. *Get $M$.* Normalized, so put the hidden 1 back: $M = 1 + f = 1 + \frac{1}{4} = \frac{5}{4}$. 
+7. *Multiply.* Sign bit is `1` so $s = -1$.
+8. $-1 \cdot 8 \cdot \frac{5}{4} = -10$. 
+
+#### Denormalized
+
+*Example.* `0_0000_101` formatted with $k = 4$, $n = 3$, so $\text{Bias} = 7$. 
+
+The process:
+1. *Which mode?* Exponent field is `0000`. 
 2. *Get $e$.*
-3. *Get $E$.*
+3. *Get $E$.* 
 4. *Get $2^{E}$.*
 5. *Get $f$.*
-6. *Get $M$.*
-7. *Multiply.*
+6. *Get $M$.* 
+7. *Multiply.* 
+8. 
 
 ## Encoding a Decimal Value
 
