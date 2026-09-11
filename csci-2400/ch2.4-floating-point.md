@@ -32,7 +32,20 @@ A distinction: $M$ is `1.011`, but the bits actually stored are `011` so $f = \t
 
 ## Decoding a Bit Pattern
 
+#### Normalized
 
+*Example.* `1_110_010` formatted with $k = 3$, $n = 3$, so $\text{Bias} = 3$. 
+
+`1_110_010` where `1` $=$ the sign bit, `110` $=$ the exponent field, and `010` $=$ the fraction field. Bias is $2^{k-1} - 1 = 2^{2} - 1 = 3$. 
+
+The walk:
+1. *Which mode?* Exponent field is `110` (not all zeros, not all ones) so normalized.
+2. *Get $e$.*
+3. *Get $E$.*
+4. *Get $2^{E}$.*
+5. *Get $f$.*
+6. *Get $M$.*
+7. *Multiply.*
 
 ## Encoding a Decimal Value
 
