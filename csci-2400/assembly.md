@@ -8,7 +8,7 @@ A register is a tiny storage slot built directly into the CPU chip. It's the onl
 
 | Register     | Conventional role             |
 |--------------|--------------------------------|
-| %rax         | Return value                   |
+| %rax / %eax        | Return value                   |
 | %rbx         | Callee-saved                   |
 | %rcx         | Arg 4                          |
 | %rdx         | Arg 3                          |
