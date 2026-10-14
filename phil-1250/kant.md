@@ -19,3 +19,12 @@ According to Kant, "Act only according to that maxim whereby you can at the same
 The formulation of the categorical imperative relies on the distinction between categorical and hypothetical imperatives. As Kant would write, a hypothetical imperative is one that is contingent on desire - but a categorical imperative is one that binds all agents regardless of desire. These imperatives are morally binding because of the categorical form of their maxims, rather than contingent facts about an agent.
 
 Kant also believed in a consistency of his ethics such that if it is good for one, it is good for all (a group of ones). 
+
+## Perpetual Peace
+
+The definition of peace has been *modernized* through the passage of law and state - Kant's perspective is focused on this idea that nations come together, despite the seemingly constant fighting between the European states at the time. 
+
+Kant believed that a global government would be tyrannical, and we need some sort of self-executing framework that would keep individuals state accountable and build out an interconnected peace between each individual state. To achieve this, three articles are laid out:
+1. Each state would be a republican government with a separation of power between internal, voted-on branches and legislators.
+2. Each state would live in peace among the other individual states.
+3. Each state would communicate with each other only if consented.
