@@ -26,5 +26,5 @@ The definition of peace has been *modernized* through the passage of law and sta
 
 Kant believed that a global government would be tyrannical, and we need some sort of self-executing framework that would keep individuals state accountable and build out an interconnected peace between each individual state. To achieve this, three articles are laid out:
 1. Each state would be a republican government with a separation of power between internal, voted-on branches and legislators.
-2. Each state would live in peace among the other individual states.
-3. Each state would communicate with each other only if consented.
+2. There should be a voluntary league of peace among independent states.
+3. A visitor has the right to not be treated as an enemy, but has no right to settle or take over.
