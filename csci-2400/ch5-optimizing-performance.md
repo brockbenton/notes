@@ -57,4 +57,26 @@ What *CPE* is: the number of clock cycles a loop spends on each element it proce
 
 ## First round of code-level fixes
 
-### 1. Turn on compiler optimization
+### 0. Turn on compiler optimization
+
+* *Look for:* what optimization flags are being used (`-00`, `-01`, `-02`)
+* *Why it matters:* in the book the example's speed was increased by two fold
+
+### 1. Move repeated work out of the loop
+
+* *Look for:* something computed inside a loop, including in the loop condition, that gives the same result every iteration. 
+* *Fix:* compute it once before the loop and store it in a local variable.
+* *Why the compiler won't:* it can't be sure a function has no side effects, so it leaves calls where they are.
+
+### 2. Reduce procedure calls
+
+* *Look for:* a function called on every iteration just to fetch or check a value, such as getters, accessors, or bounds checks.
+* *Fix:* get direct access to the data once, outside the loop, and use it inside. 
+* *Why the compiler won't:* same side-effect problem, and it can't inline across boundaries it can't see into.
+* *Trade-off:* less modular code.
+
+### 3. Eliminate unneeded memory references
+
+* *Look for:* a loop that reads and writes the same memory location every iteration, such as accumulating into `*ptr`, `array[k]`, or `obj->field`. 
+* *Fix:* accumulate in a local variable, which stays in a register, and write it back once after the loop.
+* *Why the compiler won't:* aliasing. That pointer might overlap other data the loop reads, so it has to keep going back to memory. 
