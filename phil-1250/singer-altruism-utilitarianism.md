@@ -23,3 +23,9 @@ Utilitarianism is an ethical theory that falls under the overarching ethics of c
 
 * *Act Utilitarianism.* Judges each action in isolation to determine if it produces the greatest net happiness. 
 * *Rule Utilitarianism.* Judges actions based on adherence to moral rules whose general acceptance would produce the best overall consequences for society.
+
+## Discussion #7: Do you think it is possible to forge more broadly effective altruism in our society today?
+
+If we are defining an altruistic act as one that is inherently selfless and aimed at the well-being and betterment of another, then I would claim that it is not possible to forge more broadly effective altruism because altruism doesn't actually exist. The reasoning behind this claim is entirely understood as a consequence of the irreducible axiom that *human action is purposeful* or in other words, all isolated actions are aimed at a particular end - and this end is chosen via a ranking of preference that is self-determined and thus, self-serving. Using Bill Gates as an example, he is not merely donating to charities for the total benefit of another, but (plausibly) he is donating because he would have otherwise been unfulfilled and dissatisfied with himself. With this in mind, I believe that all action is self-serving in the technical sense, but that there certainly exists acts that are both self-serving and also societally-serving (like the action of donating to a charity that is effectively allocating its donors funds). 
+
+If we are instead broadly defining altruistic acts as something that might be technically self-serving, but also societally-serving or community-serving or another-person-other-than-myself-serving, then there is certainly ways to forge more broadly effective altruism in our society today. One way that comes to mind...
